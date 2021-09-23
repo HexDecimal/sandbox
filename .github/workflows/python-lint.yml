@@ -1,0 +1,35 @@
+name: Python Linters
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  black:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      - name: Download Black
+        run: |
+          pip install black
+      - name: Check with Black
+        run: |
+          black . --check --diff
+  isort:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      - name: Download isort
+        run: |
+          pip install isort
+      - name: Check with isort
+        run: |
+          isort . --check --diff

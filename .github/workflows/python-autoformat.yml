@@ -1,7 +1,6 @@
 name: Python Auto Formatters
 
 on:
-  push:
   pull_request:
 
 jobs:
@@ -22,9 +21,6 @@ jobs:
       - name: Run black
         run: |
           black .
-      - name: Show diff
-        run: |
-          git diff
       - uses: getsentry/action-git-diff-suggestions@main
         with:
-          message: "Changes suggested by auto-formatters."
+          message: "Changes suggested by auto formatters"
