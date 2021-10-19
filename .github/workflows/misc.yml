@@ -1,0 +1,13 @@
+name: Other tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  git-describe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run git describe
+        run: git describe --always
