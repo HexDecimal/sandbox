@@ -8,7 +8,7 @@ jobs:
   git-describe:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: HexDecimal/checkout@b8f2f1e0a50cfa75de15c2d7fef6acbe077c711c
         with:
           fetch-depth: 0
       - name: Run git describe
