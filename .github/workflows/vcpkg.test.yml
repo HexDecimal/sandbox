@@ -1,0 +1,20 @@
+name: Check Vcpkg
+
+on:
+  push:
+
+jobs:
+  vcpkg:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, ubuntu-20.04]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Bootstrap Vcpkg
+        run: ./vcpkg/bootstrap-vcpkg.sh
+      - name: Install SDL2
+        run: ./vcpkg/vcpkg install sdl2
